@@ -5,4 +5,4 @@
 
 写静态页面作业
 
-![image](https://github.com/hanchaoboke/JavaEA/blob/master/picture/%E6%88%AA%E5%B1%8F2020-04-27%20%E4%B8%8B%E5%8D%888.03.04.png)
+![image](https://github.com/hanchaoboke/JavaEA/blob/master/picture/%E6%88%AA%E5%B1%8F2020-04-27%20%E4%B8%8B%E5%8D%888.03.04.png?raw=true)
