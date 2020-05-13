@@ -14,16 +14,11 @@ import java.io.IOException;
 public class Webapp extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Integer a = Integer.valueOf(req.getParameter("a"));
-        //resp.getWriter().append(a.toString());
-        String a = req.getParameter("a");
-        String b = req.getParameter("b");
-
-        Integer c = Integer.parseInt(a) + Integer.parseInt(b);
-
-        resp.getWriter().write(c.toString());
-        
-
-
+        Integer c = 0;
+        req.setAttribute("result",c);
+        req.getRequestDispatcher("index.jsp").forward(req,resp);
     }
+
+
+
 }

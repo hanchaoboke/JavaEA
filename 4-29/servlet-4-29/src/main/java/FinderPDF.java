@@ -15,7 +15,7 @@ public class FinderPDF extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         File file = new File("/Library/Tomcat/apache-tomcat-9.0.34/webapps/myfinder/WEB-INF/classes/Spring Boot.pdf");
-        //File file = new File("/Spring Boot.pdf");
+       // File file = new File("/Spring Boot.pdf");
         resp.setContentType("application/PDF;charset=utf-8");
 
         InputStream fileInputStream = new FileInputStream(file.getAbsolutePath());
