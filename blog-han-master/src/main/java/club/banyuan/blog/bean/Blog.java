@@ -1,7 +1,8 @@
 package club.banyuan.blog.bean;
 
 
-import java.util.Date;
+import javax.validation.constraints.Size;
+import java.sql.Date;
 
 public class Blog {
 
@@ -11,18 +12,7 @@ public class Blog {
     private Date createdTime;
     private User author;
 
-    public Blog(Integer id, String title, String content, Date createedTime, User author) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.createdTime = createedTime;
-        this.author = author;
-    }
-
     public Blog() {
-    }
-
-    public Blog(Integer i, String s, String s1) {
     }
 
     public Integer getId() {
@@ -49,12 +39,12 @@ public class Blog {
         this.content = content;
     }
 
-    public Date getCreateedTime() {
+    public Date getCreatedTime() {
         return createdTime;
     }
 
-    public void setCreateedTime(Date createedTime) {
-        this.createdTime = createedTime;
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
     }
 
     public User getAuthor() {
@@ -71,7 +61,7 @@ public class Blog {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", createedTime=" + createdTime +
+                ", createdTime=" + createdTime +
                 ", author=" + author +
                 '}';
     }

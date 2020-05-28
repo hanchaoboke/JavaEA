@@ -8,17 +8,22 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
 public class BlogService {
     @Autowired
     private BlogDao blogDao;
 
+    @Autowired
+    private UserService userService;
+
     public  Blog findBlogsById(Integer id) {
-        Blog blog =blogDao.findBlogById(11);
+        Blog blog =blogDao.findBlogById(id);
         return blog;
+    }
+
+    public PageInfo findBlogsByUsername (String username,Integer page,Integer size) {
+        User user = userService.findUserByName(username);
+        return findBlogs(user,page,size);
     }
 
     public PageInfo<Blog> findBlogs(User user, Integer page,Integer size) {
@@ -26,13 +31,13 @@ public class BlogService {
         PageHelper.startPage(page,size,"id asc");
 
         return new PageInfo(blogDao.findBlogsById(user.getId()));
+    }
 
+    public void saveBlogs(Integer id,String title,String content) {
+        blogDao.saveBlog(id,title,content);
+    }
 
-//        List<Blog> blogs = new ArrayList<>();
-//        for (Integer i = 0; i < 100; i++) {
-//            Blog blog = new Blog(i, "title " + i, "content " + i);
-//            blogs.add(blog);
-//        }
-//        return blogs;
+    public void deleteBlog(Integer id) {
+        blogDao.deleteBlog(id);
     }
 }

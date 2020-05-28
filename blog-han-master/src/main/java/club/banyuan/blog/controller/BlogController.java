@@ -1,6 +1,7 @@
 package club.banyuan.blog.controller;
 
 import club.banyuan.blog.bean.Blog;
+import club.banyuan.blog.exception.NotFoundException;
 import club.banyuan.blog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,10 @@ public class BlogController {
     @GetMapping
     String showBlog(@PathVariable Integer id, Model module){
         Blog blog = blogService.findBlogsById(id);
+
+        if (blog == null) {
+            throw new NotFoundException("没有博客");
+        }
         module.addAttribute("blog",blog);
         return "item";
     }
